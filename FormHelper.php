@@ -53,6 +53,17 @@ class FormHelper {
         } else {
             $value = '';
         }
+
+        if (!isset($attributes['email'])) {
+            $attributes['email'] = null;
+        }
+        $email = $attributes['email'];
+        if (isset($this->values[$email])) {
+            $value = $this->values[$email];
+        } else {
+            $value = '';
+        }
+
         return $this->start('textarea', $attributes) .
                htmlentities($value) .
                $this->end('textarea');
